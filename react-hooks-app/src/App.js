@@ -3,10 +3,12 @@ import React from 'react';
 // Styles
 import './App.css';
 
-function App() {
+function App({ names }) {
   return (
     <div className='App'>
-      <h1>Hello world!</h1>
+      {names.map((name, i) => {
+        return <p key={i}>Hello {name}!</p>;
+      })}
     </div>
   );
 }
