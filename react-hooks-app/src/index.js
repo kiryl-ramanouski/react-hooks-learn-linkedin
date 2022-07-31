@@ -1,16 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
+
+// External components
+import { FaStar } from 'react-icons/fa';
 
 // Styles
 import './index.css';
 
+// Helpers functions
+const createArray = (length) => [...Array(length)];
+
+// Components
+const Star = ({ selected = false }) => {
+  return <FaStar color={selected ? 'red' : 'grey'} />;
+};
+
+const StarRating = ({ totalStars = 5 }) => {
+  return createArray(totalStars).map((item, i) => <Star key={i} />);
+};
+
 const App = () => {
-  const [status, setStatus] = useState('Not delivered');
   return (
-    <div>
-      <h1>The package is: {status}</h1>
-      <button onClick={() => setStatus('Delivered')}>Delivered</button>
-    </div>
+    <>
+      <StarRating totalStars={10} />
+    </>
   );
 };
 
