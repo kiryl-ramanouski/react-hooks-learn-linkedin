@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
-// Global context
-import { TreesContext } from './index';
+// Custom hooks
+import { useTrees } from './index';
 
 // Styles
 import './App.css';
 
 const App = () => {
-  const { trees, log } = useContext(TreesContext);
+  const { trees, log } = useTrees();
   return (
     <>
       <h1 style={{ color: 'red', textAlign: 'center' }}>My trees</h1>

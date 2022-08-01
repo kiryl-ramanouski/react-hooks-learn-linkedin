@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React, { createContext, useContext } from 'react';
 import ReactDOM from 'react-dom/client';
 
 // Components
@@ -8,7 +8,12 @@ import App from './App';
 import './index.css';
 
 // Global context
-export const TreesContext = createContext();
+const TreesContext = createContext();
+
+export const useTrees = () => {
+  const { trees, log } = useContext(TreesContext);
+  return { trees, log };
+};
 
 const trees = [
   { id: 1, type: 'Fir' },
