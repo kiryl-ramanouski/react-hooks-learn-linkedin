@@ -1,34 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
+
+// Custom hooks
+import useInput from './Hooks/useInput';
 
 // Styles
 import './index.css';
 
 const App = () => {
-  const [sound, setSound] = useState('');
-  const [color, setColor] = useState('#000000');
+  const [soundProps, resetSound] = useInput('');
+  const [colorProps, resetColor] = useInput('#000000');
 
   const submit = (e) => {
     e.preventDefault();
-    alert(`${sound} sounds like ${color}`);
-    setSound('');
-    setColor('#000000');
+    alert(`${soundProps.value} sounds like ${colorProps.value}`);
+    resetSound();
+    resetColor();
   };
 
   return (
     <form onSubmit={submit}>
       <input
         type='text'
-        value={sound}
+        value={soundProps.value}
         placeholder='Sound...'
-        onChange={(e) => {
-          setSound(e.target.value);
-        }}
+        onChange={(e) => soundProps.onChange(e)}
       />
       <input
         type='color'
-        value={color}
-        onChange={(e) => setColor(e.target.value)}
+        value={colorProps.value}
+        onChange={(e) => colorProps.onChange(e)}
       />
       <button>Add</button>
     </form>
