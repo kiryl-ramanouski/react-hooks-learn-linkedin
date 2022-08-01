@@ -12,11 +12,11 @@ const reducer = (state, action) => {
   switch (action.type) {
     case 'yell':
       return {
-        message: 'HEY!',
+        message: `HEY! I JUST SAID ${state.message}!`,
       };
     case 'whisper':
       return {
-        message: 'excuse me',
+        message: `excuse me, I just said ${state.message}...`,
       };
     default:
       return {
