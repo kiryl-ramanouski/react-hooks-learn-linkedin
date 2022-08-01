@@ -20,17 +20,8 @@ const App = () => {
 
   return (
     <form onSubmit={submit}>
-      <input
-        type='text'
-        value={soundProps.value}
-        placeholder='Sound...'
-        onChange={(e) => soundProps.onChange(e)}
-      />
-      <input
-        type='color'
-        value={colorProps.value}
-        onChange={(e) => colorProps.onChange(e)}
-      />
+      <input type='text' placeholder='Sound...' {...soundProps} />
+      <input type='color' {...colorProps} />
       <button>Add</button>
     </form>
   );
