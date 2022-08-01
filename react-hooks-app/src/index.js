@@ -13,6 +13,16 @@ const App = () => {
       .then((response) => setData(response));
   }, [data]);
 
+  if (data) {
+    return (
+      <ul>
+        {data.map((user) => (
+          <li key={user.id}>{user.login}</li>
+        ))}
+      </ul>
+    );
+  }
+
   return (
     <div>
       <p>No users</p>
