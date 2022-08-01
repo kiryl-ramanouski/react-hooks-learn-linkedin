@@ -11,15 +11,24 @@ const App = () => {
     fetch('https://api.github.com/users')
       .then((response) => response.json())
       .then((response) => setData(response));
-  }, [data]);
+  }, []);
 
   if (data) {
     return (
-      <ul>
-        {data.map((user) => (
-          <li key={user.id}>{user.login}</li>
-        ))}
-      </ul>
+      <>
+        <ul>
+          {data.map((user) => (
+            <li key={user.id}>{user.login}</li>
+          ))}
+        </ul>
+        <button
+          onClick={() => {
+            setData([]);
+          }}
+        >
+          Remove data
+        </button>
+      </>
     );
   }
 
